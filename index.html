@@ -4,53 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
     <header>
+        <div class="logo"><a href="index.html">My Portfolio</a></div>
         <nav>
-            <a href="#" class="logo" onclick="scrollToTop()">Logo</a>
             <ul class="menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="mobile-menu">
-                <button onclick="toggleMobileMenu()">Menu</button>
-            </div>
+            <button class="menu-toggle">Menu</button>
         </nav>
     </header>
-    <main>
-        <section id="about">
-            <h1>About Me</h1>
-            <p>This is a brief description of myself.</p>
-        </section>
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="filters">
-                <!-- Add filter buttons or links here -->
+
+    <section id="about">
+        <h1>Welcome to My Portfolio</h1>
+        <p>This is a showcase of my works and projects.</p>
+        <p>Contact me at: <a href="mailto:ammar.arshad@torontomu.ca">ammar.arshad@torontomu.ca</a></p>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/arshad-ammar/">LinkedIn</a></p>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="filters">
+            <button class="filter-btn" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+            <button class="filter-btn" data-filter="app">Apps</button>
+        </div>
+        <div class="project-list">
+            <div class="project web">
+                <h3>Project 1</h3>
+                <p>Description of Project 1.</p>
             </div>
-            <div class="project-list">
-                <!-- Dynamically loaded project items here -->
+            <div class="project app">
+                <h3>Project 2</h3>
+                <p>Description of Project 2.</p>
             </div>
-        </section>
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Email: <a href="mailto:ammar.arshad@torontomu.ca">ammar.arshad@torontomu.ca</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/arshad-ammar/">View my LinkedIn profile</a></p>
-        </section>
-    </main>
+            <!-- More projects can be added here -->
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2026 Ammar Arshad</p>
+        <p>&copy; 2026 Ammar Arshad. All rights reserved.</p>
     </footer>
+
     <script>
-        function toggleMobileMenu() {
-            const menu = document.querySelector('.menu');
+        // Mobile menu toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        menuToggle.addEventListener('click', () => {
             menu.classList.toggle('active');
-        }
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        });
+
+        // Filter functionality for projects
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projects = document.querySelectorAll('.project');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                projects.forEach(project => {
+                    if (filter === 'all' || project.classList.contains(filter)) {
+                        project.style.display = 'block';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
