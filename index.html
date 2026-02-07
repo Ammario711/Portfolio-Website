@@ -1,66 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <style>
-        /* Add your styles here */
-    </style>
-    <script>
-        // JavaScript for mobile menu
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('active');
-        }
-
-        // JavaScript for scrolling to top
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // JavaScript for project filtering
-        function filterProjects(category) {
-            const allProjects = document.querySelectorAll('.project');
-            allProjects.forEach(project => {
-                if (category === 'all' || project.classList.contains(category)) {
-                    project.style.display = 'block';
-                } else {
-                    project.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    <!-- Add your CSS here -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="logo" onclick="scrollToTop()">
-            <img src="logo.png" alt="Logo">
-        </div>
-        <nav>
-            <button onclick="toggleMobileMenu()">☰</button>
-            <ul id="mobile-menu">
-                <li><a href="#home" onclick="toggleMobileMenu()">Home</a></li>
-                <li><a href="#about" onclick="toggleMobileMenu()">About</a></li>
-                <li><a href="#projects" onclick="toggleMobileMenu()">Projects</a></li>
-                <li><a href="#contact" onclick="toggleMobileMenu()">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Welcome to My Portfolio</h1>
     </header>
     <main>
         <section id="projects">
             <h2>Projects</h2>
-            <button onclick="filterProjects('all')">All</button>
-            <button onclick="filterProjects('mechanical')">Mechanical</button>
-            <button onclick="filterProjects('data')">Data</button>
-            <div class="project mechanical">Mechanical Project 1</div>
-            <div class="project data">Data Project 1</div>
-            <div class="project mechanical">Mechanical Project 2</div>
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Description of Project 1.</p>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Description of Project 2.</p>
+            </div>
+            <!-- Add more projects as desired -->
+        </section>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Information about yourself.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>How to contact me.</p>
         </section>
     </main>
     <footer>
-        <p>Contact: <a href="mailto:ammir.arshad@torontomu.ca">ammir.arshad@torontomu.ca</a></p>
-        <p><a href="https://www.linkedin.com/in/arshad-ammar/">LinkedIn</a></p>
+        <p>&copy; 2026 Ammario711</p>
     </footer>
 </body>
 </html>
